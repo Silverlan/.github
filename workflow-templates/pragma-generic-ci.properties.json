@@ -1,0 +1,8 @@
+{
+    "name": "Pragma Generic Workflow",
+    "description": "Generic Workflow for Pragma projects.",
+    "iconName": "cpp.svg",
+    "categories": [
+        "C++"
+    ]
+}
