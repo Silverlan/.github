@@ -6,9 +6,6 @@ on:
     branches: [ $default-branch ]
   pull_request:
     branches: [ $default-branch ]
-    
-env:
-  shared_cmake_definitions: ''
   
 # Template for downloading and building submodule
 #- name: Build submodule - moduleName
@@ -70,7 +67,6 @@ jobs:
         with:
           build_type: ${{ matrix.config.build_type }}
           build_generator: ${{ matrix.config.generators }}
-          cmake_definitions: ${{ env.shared_cmake_definitions }} -DCMAKE_BUILD_TYPE=${{ matrix.config.build_type }}
           
   # UBUNTU x64 GCC
   build-ubuntu:
