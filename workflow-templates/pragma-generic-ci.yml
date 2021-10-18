@@ -32,12 +32,6 @@ env:
 #    repo_branch: 'master'
 #    cmake_definitions: ${{ env.cmake_definitions }}
 
-# Template for defining CMake alias
-#- name: Define CMake Variable DEPENDENCY_MODULE_INCLUDE
-#  uses: Silverlan/common_actions/define_cmake_var@actions
-#  with:
-#    cmake_var: ' -DEPENDENCY_MODULE_INCLUDE=\${MODULE_INCLUDE_DIR}'
-
 jobs:
   # WINDOWS x64 MSVC
   build-windows:
