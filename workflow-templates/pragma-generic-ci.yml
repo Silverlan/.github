@@ -9,6 +9,34 @@ on:
     
 env:
   shared_cmake_definitions: ''
+  
+# Template for downloading and building submodule
+#- name: Build submodule - moduleName
+#  uses: Silverlan/common_actions/build_submodule@actions
+#  with:
+#    repo: 'repositoryUrl'
+#    repo_name: 'repoName'
+#    repo_branch: 'master'
+#    build_target: buildTarget
+#    cmake_var: 'MODULE_INCLUDE_DIR'
+#    cmake_var_lib: 'MODULE_LIBRARY'
+#    include_dir: '.'
+
+# Template for downloading header-only module (without building)
+#- name: Download submodule - moduleName
+#  uses: Silverlan/common_actions/get_submodule@actions
+#  with:
+#    dir: 'third_party_libs'
+#    repo: 'repositoryUrl'
+#    repo_name: 'repoName'
+#    repo_branch: 'master'
+#    cmake_definitions: ${{ env.cmake_definitions }}
+
+# Template for defining CMake alias
+#- name: Define CMake Variable DEPENDENCY_MODULE_INCLUDE
+#  uses: Silverlan/common_actions/define_cmake_var@actions
+#  with:
+#    cmake_var: ' -DEPENDENCY_MODULE_INCLUDE=\${MODULE_INCLUDE_DIR}'
 
 jobs:
   # WINDOWS x64 MSVC
@@ -41,7 +69,7 @@ jobs:
           
       #- name: Download common external libs
       #  uses: Silverlan/common_actions/get_common_external_libs@actions
-          
+      
       - name: CMake Build
         uses: Silverlan/common_actions/build_cmake@main
         with:
