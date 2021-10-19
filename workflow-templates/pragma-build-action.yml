@@ -1,0 +1,28 @@
+name: Build
+description: 'Build library'
+
+runs:
+  using: "composite"
+  steps:
+    - name: Initialize Env
+      id: init-env
+      uses: Silverlan/common_actions/set_common_env_vars@actions
+
+    #- name: Build dependency
+    #  uses: Silverlan/common_actions/build_cmake@actions
+    #  with:
+    #    build_target: <BUILD_TARGET>
+    #    cmake_var: '<CMAKE_INCLUDE_VAR>'
+    #    cmake_var_lib: '<CMAKE_LIBRARY_VAR>'
+
+    - name: Download common external libs
+      uses: Silverlan/common_actions/get_common_external_libs@actions
+
+    - name: CMake Build
+      uses: Silverlan/common_actions/build_cmake@actions
+      with:
+        build_type: ${{ matrix.config.build_type }}
+        build_generator: ${{ matrix.config.generators }}
+        cmake_definitions: ${{ env.cmake_definitions }}
+        build_target: <BUILD_TARGET>
+        
