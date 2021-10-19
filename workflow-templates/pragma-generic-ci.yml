@@ -62,9 +62,9 @@ jobs:
         with:
           submodules: true
           
-      - name: Initialize Env
-        id: init-env
-        uses: Silverlan/common_actions/set_common_env_vars@actions
+      - name: Setup
+        id: setup
+        uses: Silverlan/common_actions/setup@actions
         
       - name: Install GCC-11
         if: runner.os == 'Linux'
