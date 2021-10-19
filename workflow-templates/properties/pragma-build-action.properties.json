@@ -1,6 +1,6 @@
 {
-    "name": "Pragma Generic Library Workflow",
-    "description": "Generic Workflow for Pragma libraries.",
+    "name": "Pragma Generic Library Action",
+    "description": "Action template for Pragma libraries.",
     "iconName": "cpp",
     "categories": [
         "C++"
