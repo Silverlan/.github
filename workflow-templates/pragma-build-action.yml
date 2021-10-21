@@ -1,6 +1,34 @@
 name: Build
 description: 'Build library'
 
+  
+# Example for downloading and building submodule
+#- name: Build submodule - libpng
+#  uses: Silverlan/common_actions/build_submodule@actions
+#  with:
+#    repo: 'https://github.com/glennrp/libpng.git'
+#    repo_name: 'libpng'
+#    repo_branch: 'libpng16'
+#    build_target: png
+#    cmake_var: 'DEPENDENCY_LPNG_INCLUDE'
+#    cmake_var_lib: 'DEPENDENCY_LPNG_LIBRARY'
+#    cmake_definitions: ${{ env.cmake_definitions }}
+#    include_dir: '.'
+#    lib_name: '${{ matrix.config.build_type }}/libpng16'
+
+# Template for downloading module (without building) with if-condition
+#- uses: ChristopherHX/conditional@b4a9649204f81002ec9a4ef7d4bf7d6b2ab7fa55
+#  name: CMake Build
+#  with:
+#    if: ${{inputs.should_checkout == '1'}}
+#    step: |
+#      uses: Silverlan/common_actions/get_submodule@actions
+#      with:
+#        repo: '${{ github.repository }}'
+#        repo_name: '${{ github.event.repository.name }}'
+#        cmake_var: 'DEPENDENCY_LIBRARY_INCLUDE'
+#        dir: 'external_libs'
+
 runs:
   using: "composite"
   steps:
