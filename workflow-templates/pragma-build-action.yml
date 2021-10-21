@@ -4,7 +4,7 @@ description: 'Build library'
   
 # Example for downloading and building submodule
 #- name: Build submodule - libpng
-#  uses: Silverlan/common_actions/build_submodule@actions
+#  uses: Silverlan/common_actions/build_submodule@main
 #  with:
 #    repo: 'https://github.com/glennrp/libpng.git'
 #    repo_name: 'libpng'
@@ -22,7 +22,7 @@ description: 'Build library'
 #  with:
 #    if: ${{inputs.should_checkout == '1'}}
 #    step: |
-#      uses: Silverlan/common_actions/get_submodule@actions
+#      uses: Silverlan/common_actions/get_submodule@main
 #      with:
 #        repo: '${{ github.repository }}'
 #        repo_name: '${{ github.event.repository.name }}'
@@ -34,20 +34,20 @@ runs:
   steps:
     - name: Initialize Env
       id: init-env
-      uses: Silverlan/common_actions/set_common_env_vars@actions
+      uses: Silverlan/common_actions/set_common_env_vars@main
 
     #- name: Build dependency
-    #  uses: Silverlan/common_actions/build_cmake@actions
+    #  uses: Silverlan/common_actions/build_cmake@main
     #  with:
     #    build_target: <BUILD_TARGET>
     #    cmake_var: '<CMAKE_INCLUDE_VAR>'
     #    cmake_var_lib: '<CMAKE_LIBRARY_VAR>'
 
     - name: Download common external libs
-      uses: Silverlan/common_actions/get_common_external_libs@actions
+      uses: Silverlan/common_actions/get_common_external_libs@main
 
     - name: CMake Build
-      uses: Silverlan/common_actions/build_cmake@actions
+      uses: Silverlan/common_actions/build_cmake@main
       with:
         build_type: ${{ matrix.config.build_type }}
         build_generator: ${{ matrix.config.generators }}
